@@ -15,14 +15,14 @@ public class Date {
 	public int getDay() 			{	return this.day; 	}
 	
 
-	// 1. À±³âÀÎÁö ÆÇ´Ü
+	// 1. ìœ¤ë…„ì¸ì§€ íŒë‹¨
 	public boolean isLeapYear(int y) {
 		if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0)  
 			return true;
 		return false;
 	}
 	
-	// 2. °¢ ¿ùÀÇ ÃÑÀÏ Ã£±â
+	// 2. ê° ì›”ì˜ ì´ì¼ ì°¾ê¸°
 	public int getMonthLastDay(int y, int m) {
 
 		if(m == 2)						
@@ -41,31 +41,30 @@ public class Date {
 		}
 		
 		return 0;
-		
 	}
 	
-	// 3. ³¯Â¥ ÀÔ·Â½Ã ÇØ´ç ¿äÀÏ Ã£±â
+	// 3. ë‚ ì§œ ì…ë ¥ì‹œ í•´ë‹¹ ìš”ì¼ ì°¾ê¸°
 	public char getWeekDay() {
 		int totalDay = 0;
 		int tmpYear = 1;
 		int tmpMonth = 1;
 		
-		// Àü³âµµ±îÁöÀÇ ÃÑ ÇÕ
+		// ì „ë…„ë„ê¹Œì§€ì˜ ì´ í•©
 		for(int i=1; i < this.year; i++) {
 			for(int j=1; j<=12; j++) {
 				totalDay += getMonthLastDay(i, j);
 			}
 		}
 		
-		// ¿ÃÇØ Àú¹ø´Ş±îÁöÀÇ ÃÑ ÇÕ
+		// ì˜¬í•´ ì €ë²ˆë‹¬ê¹Œì§€ì˜ ì´ í•©
 		for(int j=1; j < this.month; j++) 
 			totalDay += getMonthLastDay(this.year, j);
 				
-		// ÀÌ¹ø´Ş ³¯Â¥ ÃÑ ÇÕ
+		// ì´ë²ˆë‹¬ ë‚ ì§œ ì´ í•©
 		totalDay += (this.day - 1);
 		
-		// ¿äÀÏ ±¸ÇÏ±â
-		char[] wd = {'¿ù', 'È­', '¼ö', '¸ñ', '±İ', 'Åä', 'ÀÏ'};
+		// ìš”ì¼ êµ¬í•˜ê¸°
+		char[] wd = {'ì›”', 'í™”', 'ìˆ˜', 'ëª©', 'ê¸ˆ', 'í† ', 'ì¼'};
 		int week = totalDay % 7;
 		
 		return wd[week];
