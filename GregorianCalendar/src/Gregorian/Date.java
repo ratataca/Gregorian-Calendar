@@ -39,7 +39,6 @@ public class Date {
 			if(m == num)
 				return 30;
 		}
-		
 		return 0;
 	}
 	
