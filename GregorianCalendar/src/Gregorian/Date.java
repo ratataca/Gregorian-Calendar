@@ -24,9 +24,8 @@ public class Date {
 	
 	// 2. 각 월의 총일 찾기
 	public int getMonthLastDay(int y, int m) {
-
 		if(m == 2)						
-			return isLeapYear(y) ? 29 : 28;
+			return this.isLeapYear(y) ? 29 : 28;
 	
 		int[] month31 = {1, 3, 5, 7, 8, 10, 12};
 		for(int num: month31) {
@@ -51,13 +50,13 @@ public class Date {
 		// 전년도까지의 총 합
 		for(int i=1; i < this.year; i++) {
 			for(int j=1; j<=12; j++) {
-				totalDay += getMonthLastDay(i, j);
+				totalDay += this.getMonthLastDay(i, j);
 			}
 		}
 		
 		// 올해 저번달까지의 총 합
 		for(int j=1; j < this.month; j++) 
-			totalDay += getMonthLastDay(this.year, j);
+			totalDay += this.getMonthLastDay(this.year, j);
 				
 		// 이번달 날짜 총 합
 		totalDay += (this.day - 1);
