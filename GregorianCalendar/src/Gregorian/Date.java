@@ -48,14 +48,14 @@ public class Date {
 		int tmpMonth = 1;
 		
 		// 전년도까지의 총 합
-		for(int i=1; i < this.year; i++) {
-			for(int j=1; j<=12; j++) {
+		for(int i = 1; i < this.year; i++) {
+			for(int j = 1; j <= 12; j++) {
 				totalDay += this.getMonthLastDay(i, j);
 			}
 		}
 		
 		// 올해 저번달까지의 총 합
-		for(int j=1; j < this.month; j++) 
+		for(int j = 1; j < this.month; j++) 
 			totalDay += this.getMonthLastDay(this.year, j);
 				
 		// 이번달 날짜 총 합
